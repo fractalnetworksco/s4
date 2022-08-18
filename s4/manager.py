@@ -4,7 +4,7 @@ import subprocess
 
 from typing import List
 
-from volume import Volume, TVolumeCreate
+from volume import Volume, TVolumeCreate, TVolumeMount
 
 def _parse_size_str(size: str) -> (str, int):
     ''' 
@@ -44,3 +44,7 @@ class VolumeManager:
         loopback_device: str = VolumeManager.list_loop_devices(volume_create.name)[0]['name']
         VolumeManager.mkfs_btrfs(loopback_device)
         return Volume()
+
+    @staticmethod
+    def mount_volume(volume_mount: TVolumeMount):
+        os.system(f"sudo mount {volume_mount.name} {volume_mount.mount_point}")

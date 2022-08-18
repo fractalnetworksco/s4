@@ -7,6 +7,11 @@ class TVolumeCreate(NamedTuple):
     size: str # '1024M' or '1G'
 
 
+class TVolumeMount(NamedTuple):
+    name: str
+    mount_point: str
+
+
 class Volume:
     def __init__(self,):
         self.uuid = str(uuid.uuid4())
