@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 from manager import VolumeManager
 from volume import Volume, TVolumeCreate, TVolumeMount

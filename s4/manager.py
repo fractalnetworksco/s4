@@ -31,7 +31,7 @@ class VolumeManager:
             filter: str - Filter by name of loop device's backing file
         '''
         return  [loop_device for loop_device in 
-        json.loads(subprocess.check_output(['/usr/sbin/losetup', '-J']))['loopdevices'] if filter in loop_device['back-file'] ]
+        json.loads(subprocess.check_output(['losetup', '-J']))['loopdevices'] if filter in loop_device['back-file'] ]
 
     @staticmethod
     def mkfs_btrfs(device: str):
